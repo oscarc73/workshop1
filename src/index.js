@@ -3,7 +3,8 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
-const url = "https://platzi-avo.vercel.app/api/avo"
+const url = "https://platzi-avo.vercel.app";
+const appNode = document.querySelector('#app')
 
 //CON PROMESAS:
 //conectarnos al server
@@ -20,7 +21,7 @@ const url = "https://platzi-avo.vercel.app/api/avo"
 //CON ASYNC Y AWAIT
 async function fetchData() {
     //Conectarnos con el server
-    const response = await fetch(url)
+    const response = await fetch(`${url}/api/avo`)
     //procesar la respuesta y convertirla en JSON
     const responseJSON = await response.json()
     const allElements = []; //Se crea un contenedor para guardar todos los elementos mas adelante.
@@ -35,16 +36,24 @@ async function fetchData() {
         const aguacatePrice = document.createElement('div')
         //creamos un contenedor
         const container = document.createElement('div')
+        
+        //comenzamos a usar la API
+        aguacateImg.src = `${url}${element.image}`
+        aguacateTitle.textContent = element.name;
+        aguacatePrice.textContent = (`$ ${element.price}`);
 
         //agregamos todo al contendor
         container.append(aguacateImg, aguacateTitle, aguacatePrice)
         //en el forEach se va a realizar por cada elemento. si antes de esto hacemos un console.log vemos que nos imprime cada elemento //console.log(element)
 
+
         //por cada elemento creado, metemos el contenedor con todos lo puesto en nuestro array creado anteriormente.
         allElements.push(container)
     })
     //Despues de hacer todos los elementos, los incrustamos en el body de una sola vez, esto se hace despues de que todos los elementos se crean, si se coloca dentro del forEach, se incrustaria cada elemento en el body uno por uno.
-    document.body.append(...allElements)
+    appNode.append(...allElements)
 }
 
 fetchData()
+
+console.log('HEY');
