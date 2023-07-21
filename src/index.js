@@ -6,6 +6,17 @@
 const url = "https://platzi-avo.vercel.app";
 const appNode = document.querySelector('#app')
 
+const formaPrice = (price) => {
+    /*formatos de internacionalizacion:
+    intl nos muestra formatos que son estandares internacionales como precio, fecha, hora, etc.  */
+    const newPrice = window.Intl.NumberFormat("en-EN", {
+        style: "currency",
+        currency: "USD",
+    }).format(price) //con la funcion de newPrice le damos formato a price con .format() y ya podemos retornar newPrice
+
+    return newPrice
+}
+
 //CON PROMESAS:
 //conectarnos al server
 /* window.fetch(url)
@@ -34,16 +45,27 @@ async function fetchData() {
         const aguacateTitle = document.createElement('h2')
         //creamos precio
         const aguacatePrice = document.createElement('div')
+        //caja de titulo y precio
+        const cajaText = document.createElement('div')
         //creamos un contenedor
         const container = document.createElement('div')
+
+        //Agregamos clases
+        aguacateImg.className = "aguacateImg";
+        container.className = "container";
+        cajaText.classList.add("caja");
+        //Editamos clases
+        container.style = "display: flex; ";
         
         //comenzamos a usar la API
         aguacateImg.src = `${url}${element.image}`
         aguacateTitle.textContent = element.name;
-        aguacatePrice.textContent = (`$ ${element.price}`);
+        aguacatePrice.textContent = formaPrice(element.price);
 
+        //agregamos titulo y precio a la caja
+        cajaText.append(aguacateTitle,aguacatePrice)
         //agregamos todo al contendor
-        container.append(aguacateImg, aguacateTitle, aguacatePrice)
+        container.append(aguacateImg, cajaText)
         //en el forEach se va a realizar por cada elemento. si antes de esto hacemos un console.log vemos que nos imprime cada elemento //console.log(element)
 
 
@@ -55,5 +77,3 @@ async function fetchData() {
 }
 
 fetchData()
-
-console.log('HEY');
