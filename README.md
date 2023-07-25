@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Snowpack Tailwind
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
@@ -80,3 +81,7 @@ Your app is ready to be deployed!
 ### Q: What about Eject?
 
 No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+=======
+# workshop1
+Manipulando el DOM
+>>>>>>> 5cddeb6cedcb1519b3f5c043a8c3a349abd579fc
