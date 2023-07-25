@@ -1,0 +1,47 @@
+@import 'tailwindcss/dist/base.css';
+@import 'tailwindcss/dist/components.css';
+@import 'tailwindcss/dist/utilities.css';
+
+
+#app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    justify-items: center;
+    padding: 2.5rem 0;
+    margin: 1.5rem 0;
+    background-color: rgb(133 173 133 / 35%);
+}
+
+.container {
+    max-width: 23.75rem;
+    border: 1px solid #4444;
+    border-radius: 8px;
+    padding: 4px;
+    transition: 
+        transform 200ms ease-in-out,
+        box-shadow  200ms ease-in-out;
+}
+
+.container:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 2px 2px 2px 0px #4444;
+
+}
+
+.aguacateImg {
+    width: 10rem;
+    border-radius: 8px;
+    padding: 4px;
+    margin-right: 8px;
+}
+
+.caja h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.caja div {
+    font-weight: 700;
+}
